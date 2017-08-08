@@ -4,8 +4,15 @@
 #include <vector>
 #include "msg.h"
 
-
 using std::vector;
+
+
+
+typedef enum {	
+	PLAIN_MSG,	
+	SECURE_MSG	
+}msg_type_t;
+
 
 class MsgAdmin {
 	public:
@@ -14,6 +21,8 @@ class MsgAdmin {
 		void pop();
 		bool is_empty();
 		bool is_full();
+		Msg& find_safest();
+		Msg& find_safest(msg_type_t msg_type);
 	
 	protected:
 		vector <Msg*> msg_arr;

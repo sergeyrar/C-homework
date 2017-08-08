@@ -62,11 +62,7 @@ int main()
 	size_t num = 0;
 	size_t i;
 	size_t msg_type;
-		
-	enum {
-	PLAIN_MSG,
-	SECURE_MSG
-	};
+	
 		
 	// TODO: add error handling.
     // TODO: convert to Singleton.
@@ -116,10 +112,21 @@ int main()
 		msg_arr.push(msg_ptr[i]);
 	}
 	
-
 	msg_arr.show_all_msgs();
-	
-	
+		
+	Msg &safest_msg = msg_arr.find_safest();	
+	cout <<"The safest message is: " << endl;
+	safest_msg.show();	
+		
+	Msg &safest_plain = msg_arr.find_safest(PLAIN_MSG);		
+	cout <<"The safest palin message is: " << endl;
+	safest_plain.show();
+			
+	Msg &safest_secure = msg_arr.find_safest(SECURE_MSG);		
+	cout <<"The safest secure message is: " << endl;
+	safest_secure.show();
+
+
 	//delete(msg_ptr[i]);
 	
 	return 0;
