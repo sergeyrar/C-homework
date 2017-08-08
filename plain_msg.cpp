@@ -11,6 +11,12 @@ static string owner_string[] = {
 	[E]="E"
 };
 
+
+PlainMsg::~PlainMsg()
+{
+	cout << "Destructor for plain message" << endl;
+}
+
 void PlainMsg::show()
 {
 	cout << "----------------------------------------" << endl << endl;

@@ -10,6 +10,8 @@ typedef enum {
 class PlainMsg : public Msg {
 	
 	public:
+		/* functions */
+		virtual ~PlainMsg();
 		virtual void show();
 		void set_owner_class(owner_t owner_class);
 		

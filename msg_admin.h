@@ -16,6 +16,7 @@ typedef enum {
 
 class MsgAdmin {
 	public:
+		/* functions */
 		void show_all_msgs();
 		void push(Msg *msg);
 		void pop();
@@ -25,6 +26,7 @@ class MsgAdmin {
 		Msg& find_safest(msg_type_t msg_type);
 	
 	protected:
+		/* variables */
 		vector <Msg*> msg_arr;
 };
 

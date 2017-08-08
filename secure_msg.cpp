@@ -20,6 +20,11 @@ static string key_string[] = {
 };
 
 
+SecureMsg::~SecureMsg()
+{
+	cout << "Destructor for secure_message" << endl;
+}
+
 
 void SecureMsg::show()
 {

@@ -22,6 +22,7 @@ class SecureMsg: public Msg {
 	
 	public:
 		/* functions */
+		virtual ~SecureMsg();
 		virtual void show();
 		void set_key_strenght(str_t key_strength);
 		void set_security_type(sec_type_t security_type);

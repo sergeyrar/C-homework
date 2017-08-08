@@ -3,7 +3,8 @@
 #include "plain_msg.h"
 #include "msg_admin.h"
 
-int get_plain_msg_info(Msg *msg_ptr)
+/* Local functions */
+static int get_plain_msg_info(Msg *msg_ptr)
 {
 	size_t user_input;	
 	PlainMsg *plain_msg_ptr = dynamic_cast <PlainMsg*> (msg_ptr);
@@ -20,7 +21,7 @@ int get_plain_msg_info(Msg *msg_ptr)
 	return 0;
 }
 
-int get_secure_msg_info(Msg *msg_ptr)
+static int get_secure_msg_info(Msg *msg_ptr)
 {
 	size_t user_input;	
 	SecureMsg *secure_msg_ptr = dynamic_cast <SecureMsg*> (msg_ptr);
@@ -43,7 +44,7 @@ int get_secure_msg_info(Msg *msg_ptr)
 	return 0;
 }
 
-void get_msg_num(size_t *num)
+static void get_msg_num(size_t *num)
 {
 	cout << "How many messages do you want to evaluate?" << endl;
 	cin >> *num;
@@ -57,15 +58,24 @@ void get_msg_num(size_t *num)
 	     << "key strength options: LOW(0), NORM(1), MID(2), HIGH(3). LOW(least secure), HIGH(most secure)" << endl << endl << endl;
 }
 
+static void clear_mem(Msg **msg_ptr, size_t num)
+{
+	size_t i;
+	
+	for (i = 0; i < num; i ++)
+	{
+		delete(msg_ptr[i]);
+	}
+}
+
+
+/* MAIN */
 int main()
 {
 	size_t num = 0;
 	size_t i;
 	size_t msg_type;
 	
-		
-	// TODO: add error handling.
-    // TODO: convert to Singleton.
 	MsgAdmin msg_arr;
 
 	get_msg_num(&num);
@@ -126,6 +136,7 @@ int main()
 	cout <<"The safest secure message is: " << endl;
 	safest_secure.show();
 
+	clear_mem(msg_ptr, num);
 
 	//delete(msg_ptr[i]);
 	

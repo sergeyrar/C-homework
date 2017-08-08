@@ -104,19 +104,17 @@ void MsgAdmin::push(Msg *msg)
 
 void MsgAdmin::pop()
 {
-	cout<<"pop message"<<endl;
+	msg_arr.pop_back();
 }
 
 bool MsgAdmin::is_empty()
 {
-	cout<<"is empty"<<endl;
-	return 1;
+	return !msg_arr.size();
 }
 
 bool MsgAdmin::is_full()
 {
-	cout<<"is full"<<endl;
-	return 1;
+	return msg_arr.size();
 }
 
 
