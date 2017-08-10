@@ -6,7 +6,7 @@
 #define IGNORE_BUF_SIZE 256
 
 
-
+/* Local functions */
 static void get_verified_user_input(size_t *num)
 {
 	loop:
@@ -38,7 +38,7 @@ static void get_verified_user_input(size_t *num)
 }
 
 
-/* Local functions */
+
 static int get_plain_msg_info(Msg *msg_ptr)
 {
 	size_t user_input;	
