@@ -137,8 +137,6 @@ int main()
 	safest_secure.show();
 
 	clear_mem(msg_ptr, num);
-
-	//delete(msg_ptr[i]);
 	
 	return 0;
 }
